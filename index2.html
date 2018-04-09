@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
 
 <body>
 <form>
-<input name="champ" type="text" value="0" />
+<input id="champ" type="text" value="0" />
 <input onclick="javascript:this.form.champ.value++;" type="button" value="+" />
 <input onclick="javascript:this.form.champ.value--;" type="button" value="-" />
 </form>
@@ -24,6 +25,8 @@
 var color = d3.scale.threshold()
     .domain([250000, 500000, 750000, 1000000, 1250000,1500000,1750000])
 .range(["#deebf7","#c6dbef","#9ecae1","#6baed6","#4292c6","#2171b5","#08519c","#08306b"]);
+	
+var duree = document.getElementbyId("champ").value
 
 var projection = d3.geo.albers()
     .center([0, 49.5])
@@ -38,7 +41,8 @@ var path = d3.geo.path()
 var svg = d3.select('body').append("svg")
     .attr("width", width)
     .attr("height", height);
-
+// var paris = data[city="paris",duree]
+	
 var paris = [2.35, 48.85];
 var lyon = [4.85, 45.75];
 var marseille = [5.38, 43.30];
