@@ -11,7 +11,11 @@
 </head>
 
 <body>
-
+<form>
+<input name="champ" type="text" value="0" />
+<input onclick="javascript:this.form.champ.value++;" type="button" value="+" />
+<input onclick="javascript:this.form.champ.value--;" type="button" value="-" />
+</form>
 <script type="text/javascript">
     var width = 1260,
     height = 600,
