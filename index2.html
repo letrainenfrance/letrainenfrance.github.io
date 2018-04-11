@@ -1,81 +1,16 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>Point on a map D3</title>
-
-    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<title>La France, c'est beau</title>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="https://d3js.org/topojson.v1.min.js"></script>
 <script src="https://d3js.org/queue.v1.min.js"></script>
+<script type="text/javascript" src="indexbis.js"></script>
 
 </head>
 
 <body>
-<form>
-<input id="champ" type="text" value="0" />
-<input onclick="javascript:this.form.champ.value++;" type="button" value="+" />
-<input onclick="javascript:this.form.champ.value--;" type="button" value="-" />
-</form>
-<script type="text/javascript">
-    var width = 1260,
-    height = 600,
-    formatNumber = d3.format("s");
-
-var color = d3.scale.threshold()
-    .domain([250000, 500000, 750000, 1000000, 1250000,1500000,1750000])
-.range(["#deebf7","#c6dbef","#9ecae1","#6baed6","#4292c6","#2171b5","#08519c","#08306b"]);
-	
-var duree = document.getElementbyId("champ").value
-
-var projection = d3.geo.albers()
-    .center([0, 49.5])
-    .rotate([-2.8, 3])
-    .parallels([45, 55])
-    .scale(2500)
-    .translate([width / 2, height / 2]);
-
-var path = d3.geo.path()
-    .projection(projection);
-
-var svg = d3.select('body').append("svg")
-    .attr("width", width)
-    .attr("height", height);
-// var paris = data[city="paris",duree]
-	
-var paris = [2.35, 48.85];
-var lyon = [4.85, 45.75];
-var marseille = [5.38, 43.30];
-var toulouse = [1.44, 43.60];
-var cc = [paris, lyon, marseille, toulouse];
-
-//cc.push(paris).push(lyon).push(marseille).push(toulouse);
-
-queue()
-    .defer(d3.json, "https://api.myjson.com/bins/dw4e3")
-    .await(ready);
-
-console.log('proj', projection(cc));
-
-function ready(error, france) {
-
-	var regions = svg.selectAll(".departements")
-      .data(topojson.feature(france, france.objects.regions).features)
-    .enter().append("path")
-      .attr("class", "departements")
-      .attr("d", path)
-      .style("fill","lightblue");
-
-  svg.selectAll("circle")
-		.data(cc).enter()
-		.append("circle")
-		.attr("cx", function (d) { return projection(d)[0]; })
-		.attr("cy", function (d) { return projection(d)[1]; })
-		.attr("r", "4px")
-		.attr("fill", "red");
- }
- </script>
-
+    <script type="text/javascript" src="indexbis.js"></script>
 </body>
-
 </html>
