@@ -37,6 +37,7 @@ var svg = d3.select('body')
 function readCSV(path_to_csv) {
   return new Promise(function(resolve, reject) {
     d3.csv(path_to_csv, function(err, data) {
+      
       resolve(data);
     })
   });
@@ -48,13 +49,13 @@ function changeData(data) {
   let result_1980 = [];
   data.forEach((city) => {
     if (Number(city.Annee) == 1980) {
-      result_1980.push([Number(city.Longitudebis), Number(city.Latitudebis)])
-    }
-  });
+ result_1980.push([Number(city.Longitude), Number(city.Latitude)])
+   }
+});
 
   let result_total = [];
   data.forEach((city) => {
-    result_total.push([Number(city.Longitudebis), Number(city.Latitudebis)])
+    result_total.push([city.Ville, Number(city.Longitude), Number(city.Latitude)])
   });
   return result_total;
 }
@@ -73,13 +74,29 @@ function drawCities(cities) {
   svg.selectAll("circle")
 		.data(cities).enter()
 		.append("circle")
-		.attr("cx", function (d) { return projection(d)[0]; })
-		.attr("cy", function (d) { return projection(d)[1]; })
-		.attr("r", "2px")
+		.attr("cx", function (d) { return projection([d[1], d[2]])[0]; })
+		.attr("cy", function (d) { return projection([d[1], d[2]])[1]; })
+		.attr("r", "3px")
 		.attr("fill", "red");
 
-  return cities.length
+  return cities;
  }
+
+function writenames(cities) {
+  svg.selectAll("text")
+    .data(cities).enter()
+    .append("svg:text")
+    .text(function(d){
+        return d[0];})
+    .attr("x", function(d){
+        return projection([d[1], d[2]])[0];})
+    .attr("y", function(d){
+        return  projection([d[1], d[2]])[1];})
+    .attr("text-anchor","middle")
+    .attr('font-size','6pt');
+    
+  return cities.length;
+  };
 
 // Et on appelle toutes les promesses à la fin, dans le bon ordre
  function main(err, france) {
@@ -87,6 +104,7 @@ function drawCities(cities) {
     .then(() => readCSV("data_latlong.csv")) // on prend les données des villes
     .then(data => changeData(data)) // On les travaille un peu
     .then(cities => drawCities(cities)) // On les dessine
+    .then(cities => writenames(cities))
     .then(nb => console.log(nb + ' points affichés')); 
  }
 
