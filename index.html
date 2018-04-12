@@ -34,9 +34,37 @@
 
   <body id="page-top">
     <!-- Navigation -->
-    <a class="menu-toggle rounded" href="#">
+    <!--
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Navbar</a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+       </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    -->
+
+
+     <a class="menu-toggle rounded" href="#">
       <i class="fa fa-bars"></i>
     </a>
+
     <nav id="sidebar-wrapper">
       <ul class="sidebar-nav">
         <li class="sidebar-brand">
@@ -60,6 +88,10 @@
       </ul>
     </nav>
 
+
+
+
+
     <!-- Header -->
     <header class="masthead d-flex">
       <div class="container text-center my-auto">
@@ -67,13 +99,7 @@
         <h3 class="mb-5">
           <em>L'intégration des territoires français par le transport ferroviaire.</em>
         </h3>
-        <!--<a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>-->
       </div>
-      <div class="overlay"></div>
-
-      <!--
-      <iframe width="800" height="450" src="//embed.chartblocks.com/1.0/?c=5aa10a001ea0f6e15407b02c&t=6e24e6efab8cd0a" frameBorder="0"></iframe>
-      -->
     </header>
 
     <!-- About -->
@@ -81,13 +107,39 @@
       <div class="container text-center">
         <div class="row">
           <div class="col-lg-10 mx-auto">
-            <h2>Projet pour le cours de DataViz à l'ENSAE</h2>
+            <h2>La France par le train.</h2>
+            <p class="lead mb-5">Depuis l'ouverture de la politique OpenData la SNCF publie en accès libre des tableaux de données
+            relatifs à son fonctionnement. Les sujets sont multiples, des horaires des lignes TER au nombre d'accidents sur des
+            passages à niveau... On peut même y trouver la carte du wagon bar par trajet ! Ce site propose de se focaliser sur l'évolution temporelle
+            du réseau ferroviaire français : <strong>comment s'est organisé le développement du réseau, comment ont évolué les temps de parcours et ainsi
+              l'accessibilité des territoires ? </strong></p>
             <p class="lead mb-5">Ce site est le support de notre projet du cours de dataviz, à partir des données de la
-              <a href="https://data.sncf.com/">SNCF</a></p>
-            <a class="btn btn-dark btn-xl js-scroll-trigger" href="#services">Evolution de l'accessibilité des territoires français</a>
+              <a href="https://data.sncf.com/">SNCF.</a></p>
+            <a class="btn btn-dark btn-xl js-scroll-trigger" href="#services">La petite histoire du réseau ferroviaire français.</a>
           </div>
         </div>
       </div>
+    </section>
+
+    <section class="content-section" id="Histoire des lignes">
+      <div class="container">
+        <div class="content-section-heading">
+          <h3 class="text-secondary mb-0">Histoire des lignes</h3>
+          <h2 class="mb-5">Un développement tentaculaire.</h2>
+        </div>
+        <div class="row">
+          <p class="text">La SNCF est créée le 1er janvier 1938 de la fusion des grands réseaux privés
+            (Compagnies du Nord, Paris-Lyon-Méditerranée, Paris-Orléans, du Midi, de l'Est)
+            ou publics (chemins de fer de l'État, chemins de fer d'Alsace-Lorraine) de l'époque. Elle hérite du réseau
+            ferroviaire existant, à la fois de fret et de transport de voyageurs.</p>
+          <div class="infogram-embed" data-id="76b79475-2bcc-41aa-9c20-0dae2b2226c5" data-type="interactive" data-title="basic sncf"></div><script>!function(e,t,n,s){var i="InfogramEmbeds",o=e.getElementsByTagName(t)[0],d=/^http:/.test(e.location)?"http:":"https:";if(/^\/{2}/.test(s)&&(s=d+s),window[i]&&window[i].initialized)window[i].process&&window[i].process();else if(!e.getElementById(n)){var a=e.createElement(t);a.async=1,a.id=n,a.src=s,o.parentNode.insertBefore(a,o)}}(document,"script","infogram-async","https://e.infogram.com/js/dist/embed-loader-min.js");</script><div style="padding:8px 0;font-family:Arial!important;font-size:13px!important;line-height:15px!important;text-align:center;border-top:1px solid #dadada;margin:0 30px"><a href="https://infogram.com/76b79475-2bcc-41aa-9c20-0dae2b2226c5" style="color:#989898!important;text-decoration:none!important;" target="_blank">basic sncf</a><br><a href="https://infogram.com" style="color:#989898!important;text-decoration:none!important;" target="_blank" rel="nofollow">Infogram</a></div>
+        </div>
+      </div>
+
+
+
+
+
     </section>
 
 
