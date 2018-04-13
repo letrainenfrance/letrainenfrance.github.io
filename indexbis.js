@@ -8,8 +8,8 @@ var lyon = [4.85, 45.75];
 var toulouse = [1.44, 43.60];
 var cc = [paris, lyon, toulouse];
 
-var width = 960,
-    height = 500,
+var width = 1500,
+    height = 900,
     formatNumber = d3.format("s");
 
 var projection = d3.geoAlbers()
