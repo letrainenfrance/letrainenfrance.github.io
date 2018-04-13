@@ -30,6 +30,17 @@
         gtag('config', 'UA-117189899-1');
     </script>
 
+    <!-- Integrate France chart -->
+    <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://d3js.org/queue.v1.min.js"></script>
+    <script type="text/javascript" src="indexbis.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
   </head>
 
   <body id="page-top">
@@ -146,9 +157,67 @@
         </div>
         <div class="row">
           <p class="text">Un blabla sur la démographie... </p>
-<iframe id="datawrapper-chart-a5wol" src="//datawrapper.dwcdn.net/a5wol/2/" scrolling="no" frameborder="0" allowtransparency="true" style="width: 0; min-width: 100% !important;" height="600"></iframe><script type="text/javascript">if("undefined"==typeof window.datawrapper)window.datawrapper={};window.datawrapper["a5wol"]={},window.datawrapper["a5wol"].embedDeltas={"100":700,"200":650,"300":625,"400":625,"500":600,"700":600,"800":600,"900":600,"1000":600},window.datawrapper["a5wol"].iframe=document.getElementById("datawrapper-chart-a5wol"),window.datawrapper["a5wol"].iframe.style.height=window.datawrapper["a5wol"].embedDeltas[Math.min(1e3,Math.max(100*Math.floor(window.datawrapper["a5wol"].iframe.offsetWidth/100),100))]+"px",window.addEventListener("message",function(a){if("undefined"!=typeof a.data["datawrapper-height"])for(var b in a.data["datawrapper-height"])if("a5wol"==b)window.datawrapper["a5wol"].iframe.style.height=a.data["datawrapper-height"][b]+"px"});</script>        </div>
+<iframe id="datawrapper-chart-a5wol" src="//datawrapper.dwcdn.net/a5wol/4/" scrolling="no" frameborder="0" allowtransparency="true" style="width: 0; min-width: 100% !important;" height="600"></iframe><script type="text/javascript">if("undefined"==typeof window.datawrapper)window.datawrapper={};window.datawrapper["a5wol"]={},window.datawrapper["a5wol"].embedDeltas={"100":700,"200":650,"300":625,"400":625,"500":600,"700":600,"800":600,"900":600,"1000":600},window.datawrapper["a5wol"].iframe=document.getElementById("datawrapper-chart-a5wol"),window.datawrapper["a5wol"].iframe.style.height=window.datawrapper["a5wol"].embedDeltas[Math.min(1e3,Math.max(100*Math.floor(window.datawrapper["a5wol"].iframe.offsetWidth/100),100))]+"px",window.addEventListener("message",function(a){if("undefined"!=typeof a.data["datawrapper-height"])for(var b in a.data["datawrapper-height"])if("a5wol"==b)window.datawrapper["a5wol"].iframe.style.height=a.data["datawrapper-height"][b]+"px"});</script>
+        <iframe id="datawrapper-chart-dey7k" src="//datawrapper.dwcdn.net/dey7k/1/" scrolling="no" frameborder="0" allowtransparency="true" style="width: 0; min-width: 100% !important;" height="600"></iframe><script type="text/javascript">if("undefined"==typeof window.datawrapper)window.datawrapper={};window.datawrapper["dey7k"]={},window.datawrapper["dey7k"].embedDeltas={"100":750,"200":650,"300":625,"400":625,"500":600,"700":600,"800":600,"900":600,"1000":600},window.datawrapper["dey7k"].iframe=document.getElementById("datawrapper-chart-dey7k"),window.datawrapper["dey7k"].iframe.style.height=window.datawrapper["dey7k"].embedDeltas[Math.min(1e3,Math.max(100*Math.floor(window.datawrapper["dey7k"].iframe.offsetWidth/100),100))]+"px",window.addEventListener("message",function(a){if("undefined"!=typeof a.data["datawrapper-height"])for(var b in a.data["datawrapper-height"])if("dey7k"==b)window.datawrapper["dey7k"].iframe.style.height=a.data["datawrapper-height"][b]+"px"});</script>
+        </div>
       </div>
     </section>
+
+
+    <section class="content-section" id="Rapprochement de Paris">
+      <div class="container">
+        <div class="content-section-heading">
+          <h3 class="text-secondary mb-0">Rapprochement de Paris</h3>
+          <h2 class="mb-5">Quelles villes sont les plus 'proches' de Paris ?</h2>
+        </div>
+        <div class="row">
+          <p class="text">Comment dans le temps la distance relative des plus grandes villes de France à la capitale a t'elle évoluée ? </p>
+        </div>
+
+      <script type="text/javascript" src="indexbis.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>jQuery UI Slider - Range with fixed minimum</title>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <link rel="stylesheet" href="/resources/demos/style.css">
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script>
+          $( function() {
+              $( "#slider-range-min" ).slider({
+                  range: "min",
+                  value: 1980,
+                  min: 1972,
+                  max: 2000,
+                  slide: function( event, ui ) {
+                      $( "#amount" ).val( ui.value );
+                      console.log(event, ui);
+                      handleYearChange();
+                  }
+              });
+              $( "#amount" ).val( $( "#slider-range-min" ).slider( "value" ) );
+          } );
+      </script>
+
+
+        <div class="row">
+          <div id="slider-range-min"></div>
+      <p>
+        <label for="amounto">Année du slider:</label>
+        <input type="text"
+         id="amount"
+         readonly
+         style="border:0; color:#f6931f; font-weight:bold;"
+         >
+      </p>
+
+     </div>
+
+        </div>
+
+
+    </section>
+
 
 
 
@@ -220,6 +289,7 @@
     -->
 
     <!-- Portfolio -->
+    <!--
     <section class="content-section" id="portfolio">
       <div class="container">
         <div class="content-section-heading text-center">
@@ -274,6 +344,7 @@
         </div>
       </div>
     </section>
+    -->
 
     <!-- Call to Action -->
     <!--
@@ -286,15 +357,17 @@
     </section>
     -->
 
+
     <!-- Map -->
+    <!--
     <section id="contact" class="map">
       <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=ENSAE+ParisTech,+Avenue+Henri+Le+Chatelier,+Palaiseau&amp;aq=0&amp;oq=twitter&amp;sll=0.128789,0.264187&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=ENSAE+ParisTech,+Avenue+Henri+Le+Chatelier,+Palaiseau&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
       <br/>
       <small>
         <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=ENSAE+ParisTech,+Avenue+Henri+Le+Chatelier,+Palaiseau&amp;aq=0&amp;oq=twitter&amp;sll=48.714296,2.2003185&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=ENSAE+ParisTech,+Avenue+Henri+Le+Chatelier,+Palaiseau&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-        <!--<a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a> -->
       </small>
     </section>
+    -->
 
     <!-- Footer -->
     <footer class="footer text-center">
