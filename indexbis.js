@@ -8,8 +8,8 @@ var lyon = [4.85, 45.75];
 var toulouse = [1.44, 43.60];
 var cc = [paris, lyon, toulouse];
 
-var width = 1500,
-    height = 900,
+var width = 500,
+    height = 400,
     formatNumber = d3.format("s");
 
 var projection = d3.geoAlbers()
@@ -88,19 +88,48 @@ function drawCities(cities) {
             })
     		.attr("r", "3px")
     		.attr("fill", "red");
-
+    
     return cities;
  }
 
+function drawLines(cities) {
+    var lines = svg.selectAll("line").data(cities)
+    
+    lines
+        .exit()
+            .remove();
+    
+    lines
+        .enter()
+            .append("line")
+        .merge(lines)
+            .attr("x1", function (d) {
+                return projection([d[1], d[2]])[0];
+            })
+            .attr("y1", function (d) {
+                return projection([d[1], d[2]])[1];
+            })
+            .attr("x2", function (d) {
+                return projection([2.3488, 48.85341])[0];
+            })
+            .attr("y2", function (d) {
+                return projection([2.3488, 48.85341])[1];
+            })
+            .attr("stroke-width", 1.5)
+            .attr("stroke", "darkblue")
+    ;
+    return cities;
+
+}
+
 function writeNames(cities) {
     var names = svg.selectAll("text").data(cities)
-
     names
         .enter()
             .append("svg:text")
         .merge(names)
             .text(function(d) {
-                return (d[0] + " en " + d[3]);
+                return (d[0]);
             })
             .attr("x", function(d) {
                 return projection([d[1], d[2]])[0];
@@ -127,6 +156,7 @@ function main(err, france) {
         .then(() => readCSV("data_latlong.csv")) // on prend les données des villes
         .then(data => selectCities(data, selectedYear)) // On les travaille un peu
         .then(cities => drawCities(cities)) // On les dessine
+        .then(cities => drawLines(cities))
         .then(cities => writeNames(cities))
         .then(nb => console.log(nb + ' points affichés'));
 }
@@ -139,6 +169,7 @@ function handleYearChange() {
         .then(() => readCSV("data_latlong.csv")) // on prend les données des villes
         .then(data => selectCities(data, selectedYear)) // On les travaille un peu
         .then(cities => drawCities(cities)) // On les dessine
+        .then(cities => drawLines(cities))
         .then(cities => writeNames(cities))
         .then(nb => console.log(nb + ' points affichés'));
 }

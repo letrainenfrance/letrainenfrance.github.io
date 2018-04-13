@@ -27,12 +27,11 @@
   $( function() {
     $( "#slider-range-min" ).slider({
       range: "min",
-      value: 1994,
+      value: 1958,
       min: 1958,
       max: 2017,
       slide: function( event, ui ) {
         $( "#amount" ).val( ui.value );
-        console.log(event, ui);
           handleYearChange();
       }
     });
@@ -45,7 +44,7 @@
     <div id="slider-range-min"></div>
     
 <p>
-  <label for="amounto">Année du slider:</label>
+  <label for="amounto">Année :</label>
   <input type="text" 
          id="amount" 
          readonly 
