@@ -120,7 +120,7 @@ function writeNames(cities) {
 
 // Et on appelle toutes les promesses à la fin, dans le bon ordre
 function main(err, france) {
-    var selectedYear = document.getElementById("yearInput").value;
+    var selectedYear = document.getElementById("amount").value;
 
     Promise.resolve()
         .then(() => drawFrance(france)) // On dessine le fond de carte
@@ -133,7 +133,7 @@ function main(err, france) {
 
 // Triggered when input changes
 function handleYearChange() {
-    var selectedYear = document.getElementById("yearInput").value;
+    var selectedYear = document.getElementById("amount").value;
 
     Promise.resolve()
         .then(() => readCSV("data_latlong.csv")) // on prend les données des villes

@@ -32,6 +32,8 @@
       max: 2000,
       slide: function( event, ui ) {
         $( "#amount" ).val( ui.value );
+        console.log(event, ui);
+          handleYearChange();
       }
     });
     $( "#amount" ).val( $( "#slider-range-min" ).slider( "value" ) );
@@ -47,21 +49,10 @@
   <input type="text" 
          id="amount" 
          readonly 
-         style="border:0; color:#f6931f; font-weight:bold;">
+         style="border:0; color:#f6931f; font-weight:bold;"
+         >
 </p>
   
-    
-    <p>
-        <label for="amount">Année à écrire:</label>
-        <input
-            id="yearInput"
-            type="text"
-            style="border:0; color:#f6931f; font-weight:bold;"
-            onchange='handleYearChange()'
-        />
-    </p>
-    
-    
-    
+        
 </body>
 </html>
