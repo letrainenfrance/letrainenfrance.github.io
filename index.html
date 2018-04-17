@@ -147,8 +147,8 @@
             <p class="text">Comment dans le temps la distance relative des plus grandes villes de France à la capitale a t'elle évoluée ? </p>
         </div>
 
-        <div class="row">
-            <p class="lead mb-5">
+        <div class="chart" align="center">
+
             <script type="text/javascript" src="indexbis.js"></script>
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <title>jQuery UI Slider - Range with fixed minimum</title>
@@ -172,11 +172,19 @@
                     $( "#amount" ).val( $( "#slider-range-min" ).slider( "value" ) );
                 } );
             </script>
+
+    <div id="slider-range-min"></div>
+            <p>
+                <label for="amounto">Année :</label>
+                <input type="text"
+                       id="amount"
+                       readonly
+                       style="border:0; color:#f6931f; font-weight:bold;"
+                >
             </p>
 
-
         </div>
-
+<!--
         <div class="row">
             <div id="slider-range-min"></div>
             <p class="lead mb-5">
@@ -188,6 +196,7 @@
                 >
             </p>
         </div>
+-->
     </div>
 
 
