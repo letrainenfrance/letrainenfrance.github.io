@@ -144,10 +144,10 @@
         </div>
 
         <div class="row">
-            <p class="text">Comment dans le temps la distance relative des plus grandes villes de France à la capitale a t'elle évoluée ? </p>
+            <p class="text">Comment la distance relative des plus grandes villes de France à la capitale a t'elle évoluée ? Faites glisser le slider pour voir l'évolution ! </p>
         </div>
 
-        <div class="chart" align="center">
+        <div class="d-print-block" align="center">
 
             <script type="text/javascript" src="indexbis.js"></script>
             <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -160,9 +160,9 @@
                 $( function() {
                     $( "#slider-range-min" ).slider({
                         range: "min",
-                        value: 1980,
+                        value: 1958,
                         min: 1958,
-                        max: 2000,
+                        max: 2017,
                         slide: function( event, ui ) {
                             $( "#amount" ).val( ui.value );
                             console.log(event, ui);
