@@ -153,7 +153,7 @@ function main(err, france) {
 
     Promise.resolve()
         .then(() => drawFrance(france)) // On dessine le fond de carte
-        .then(() => readCSV("data_latlong.csv")) // on prend les données des villes
+        .then(() => readCSV("data_distance.csv")) // on prend les données des villes
         .then(data => selectCities(data, selectedYear)) // On les travaille un peu
         .then(cities => drawCities(cities)) // On les dessine
         .then(cities => drawLines(cities))
@@ -166,7 +166,7 @@ function handleYearChange() {
     var selectedYear = document.getElementById("amount").value;
 
     Promise.resolve()
-        .then(() => readCSV("data_latlong.csv")) // on prend les données des villes
+        .then(() => readCSV("data_distance.csv")) // on prend les données des villes
         .then(data => selectCities(data, selectedYear)) // On les travaille un peu
         .then(cities => drawCities(cities)) // On les dessine
         .then(cities => drawLines(cities))
