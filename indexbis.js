@@ -8,9 +8,22 @@ var lyon = [4.85, 45.75];
 var toulouse = [1.44, 43.60];
 var cc = [paris, lyon, toulouse];
 
-var width = 600,
-    height = 600,
-    formatNumber = d3.format("s");
+var formatNumber = d3.format("s"),
+    offset = [width / 2, height / 2],
+    scale  = 150,
+    center = [0, 49.5]
+    //, width = 600,
+    //height = 600,
+    ;
+
+var margin = {top: 20, right: 20, bottom: 20, left: 20},
+    padding = {top: 60, right: 60, bottom: 60, left: 60},
+    outerWidth = 960,
+    outerHeight = 600,
+    innerWidth = outerWidth - margin.left - margin.right,
+    innerHeight = outerHeight - margin.top - margin.bottom,
+    width = innerWidth - padding.left - padding.right,
+    height = innerHeight - padding.top - padding.bottom;
 
 var projection = d3.geoAlbers()
     .center([0, 49.5])
@@ -22,10 +35,23 @@ var projection = d3.geoAlbers()
 var path = d3.geoPath()
     .projection(projection);
 
+// using the path determine the bounds of the current map and use
+      // these to determine better values for the scale and translation
+//var bounds  = path.bounds(json);
+//var hscale  = scale*width  / (bounds[1][0] - bounds[0][0]);
+//var vscale  = scale*height / (bounds[1][1] - bounds[0][1]);
+//var scale   = (hscale < vscale) ? hscale : vscale;
+//var offset  = [width - (bounds[0][0] + bounds[1][0])/2,height - (bounds[0][1] + bounds[1][1])/2];
+
+//projection = d3.geo.Albers().center(center).rotate([-2.8, 3]).parallels([45, 55]).scale(scale).translate(offset);
+//path = path.projection(projection);
+
 var svg = d3.select('body')
+    .attr("align","center")
     .append("svg")
-    .attr("width", width)
-    .attr("height", height);
+    .attr("width", innerWidth)
+    .attr("height", innerHeight)
+    ;
 
 // DEUXIEME ETAPE : On va écrire notre fonction pour lire notre tableau CSV
 // Si tu comprends pas le code, passe à la suite, tu as juste besoin de savoir
