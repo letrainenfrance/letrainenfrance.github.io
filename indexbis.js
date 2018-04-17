@@ -71,10 +71,8 @@ function selectCities(data, year) {
     let result_20171980 = [];
     data.forEach((city) => {
         if (Number(city.Annee) == year) {
-        result_20171980.push([city.Ville, Number(city.Longitude), Number(city.Latitude), city.Annee])
-    }
-});
-
+        result_20171980.push([city.Ville, Number(city.Longitude), Number(city.Latitude), city.Annee, city.x])
+    }});
     // let result_total = [];
     // data.forEach((city) => {
     //     result_total.push([city.Ville, Number(city.Longitude), Number(city.Latitude), city.Annee])
@@ -155,7 +153,7 @@ function writeNames(cities) {
         .append("svg:text")
         .merge(names)
         .text(function(d) {
-            return (d[0]);
+            return (d[0]+'\n'+d[4]);
         })
         .attr("x", function(d) {
             return projection([d[1], d[2]])[0];
@@ -179,7 +177,7 @@ function main(err, france) {
 
     Promise.resolve()
         .then(() => drawFrance(france)) // On dessine le fond de carte
-.then(() => readCSV("data_latlong.csv")) // on prend les données des villes
+.then(() => readCSV("data_latlong3.csv")) // on prend les données des villes
 .then(data => selectCities(data, selectedYear)) // On les travaille un peu
 .then(cities => drawCities(cities)) // On les dessine
 .then(cities => drawLines(cities))
@@ -192,7 +190,7 @@ function handleYearChange() {
     var selectedYear = document.getElementById("amount").value;
 
     Promise.resolve()
-        .then(() => readCSV("data_latlong.csv")) // on prend les données des villes
+        .then(() => readCSV("data_latlong3.csv")) // on prend les données des villes
 .then(data => selectCities(data, selectedYear)) // On les travaille un peu
 .then(cities => drawCities(cities)) // On les dessine
 .then(cities => drawLines(cities))
