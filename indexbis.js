@@ -8,8 +8,8 @@ var lyon = [4.85, 45.75];
 var toulouse = [1.44, 43.60];
 var cc = [paris, lyon, toulouse];
 
-var width = 500,
-    height = 400,
+var width = 600,
+    height = 600,
     formatNumber = d3.format("s");
 
 var projection = d3.geoAlbers()
@@ -45,9 +45,9 @@ function selectCities(data, year) {
     let result_20171980 = [];
     data.forEach((city) => {
         if (Number(city.Annee) == year) {
-            result_20171980.push([city.Ville, Number(city.Longitude), Number(city.Latitude), city.Annee])
-        }
-    });
+        result_20171980.push([city.Ville, Number(city.Longitude), Number(city.Latitude), city.Annee])
+    }
+});
 
     // let result_total = [];
     // data.forEach((city) => {
@@ -63,10 +63,10 @@ function drawFrance(france) {
     var regions = svg.selectAll(".departements")
         .data(topojson.feature(france, france.objects.regions).features)
         .enter()
-            .append("path")
-            .attr("class", "departements")
-            .attr("d", path)
-            .style("fill","lightblue");
+        .append("path")
+        .attr("class", "departements")
+        .attr("d", path)
+        .style("fill","lightblue");
 }
 
 function drawCities(cities) {
@@ -74,49 +74,49 @@ function drawCities(cities) {
 
     circles
         .exit()
-            .remove();
+        .remove();
 
     circles
         .enter()
-            .append("circle")
+        .append("circle")
         .merge(circles)
-    		.attr("cx", function (d) {
-                return projection([d[1], d[2]])[0];
-            })
-    		.attr("cy", function (d) {
-                return projection([d[1], d[2]])[1];
-            })
-    		.attr("r", "3px")
-    		.attr("fill", "red");
-    
+        .attr("cx", function (d) {
+            return projection([d[1], d[2]])[0];
+        })
+        .attr("cy", function (d) {
+            return projection([d[1], d[2]])[1];
+        })
+        .attr("r", "3px")
+        .attr("fill", "red");
+
     return cities;
- }
+}
 
 function drawLines(cities) {
     var lines = svg.selectAll("line").data(cities)
-    
+
     lines
         .exit()
-            .remove();
-    
+        .remove();
+
     lines
         .enter()
-            .append("line")
+        .append("line")
         .merge(lines)
-            .attr("x1", function (d) {
-                return projection([d[1], d[2]])[0];
-            })
-            .attr("y1", function (d) {
-                return projection([d[1], d[2]])[1];
-            })
-            .attr("x2", function (d) {
-                return projection([2.3488, 48.85341])[0];
-            })
-            .attr("y2", function (d) {
-                return projection([2.3488, 48.85341])[1];
-            })
-            .attr("stroke-width", 1.5)
-            .attr("stroke", "darkblue")
+        .attr("x1", function (d) {
+            return projection([d[1], d[2]])[0];
+        })
+        .attr("y1", function (d) {
+            return projection([d[1], d[2]])[1];
+        })
+        .attr("x2", function (d) {
+            return projection([2.3488, 48.85341])[0];
+        })
+        .attr("y2", function (d) {
+            return projection([2.3488, 48.85341])[1];
+        })
+        .attr("stroke-width", 1.5)
+        .attr("stroke", "darkblue")
     ;
     return cities;
 
@@ -126,23 +126,23 @@ function writeNames(cities) {
     var names = svg.selectAll("text").data(cities)
     names
         .enter()
-            .append("svg:text")
+        .append("svg:text")
         .merge(names)
-            .text(function(d) {
-                return (d[0]);
-            })
-            .attr("x", function(d) {
-                return projection([d[1], d[2]])[0];
-            })
-            .attr("y", function(d) {
-                return  projection([d[1], d[2]])[1];
-            })
-            .attr("text-anchor", "middle")
-            .attr('font-size', '8pt');
+        .text(function(d) {
+            return (d[0]);
+        })
+        .attr("x", function(d) {
+            return projection([d[1], d[2]])[0];
+        })
+        .attr("y", function(d) {
+            return  projection([d[1], d[2]])[1];
+        })
+        .attr("text-anchor", "middle")
+        .attr('font-size', '8pt');
 
     names
         .exit()
-            .remove();
+        .remove();
 
     return cities.length;
 };
@@ -153,12 +153,12 @@ function main(err, france) {
 
     Promise.resolve()
         .then(() => drawFrance(france)) // On dessine le fond de carte
-        .then(() => readCSV("data_latlong.csv")) // on prend les données des villes
-        .then(data => selectCities(data, selectedYear)) // On les travaille un peu
-        .then(cities => drawCities(cities)) // On les dessine
-        .then(cities => drawLines(cities))
-        .then(cities => writeNames(cities))
-        .then(nb => console.log(nb + ' points affichés'));
+.then(() => readCSV("data_latlong.csv")) // on prend les données des villes
+.then(data => selectCities(data, selectedYear)) // On les travaille un peu
+.then(cities => drawCities(cities)) // On les dessine
+.then(cities => drawLines(cities))
+.then(cities => writeNames(cities))
+.then(nb => console.log(nb + ' points affichés'));
 }
 
 // Triggered when input changes
@@ -167,15 +167,15 @@ function handleYearChange() {
 
     Promise.resolve()
         .then(() => readCSV("data_latlong.csv")) // on prend les données des villes
-        .then(data => selectCities(data, selectedYear)) // On les travaille un peu
-        .then(cities => drawCities(cities)) // On les dessine
-        .then(cities => drawLines(cities))
-        .then(cities => writeNames(cities))
-        .then(nb => console.log(nb + ' points affichés'));
+.then(data => selectCities(data, selectedYear)) // On les travaille un peu
+.then(cities => drawCities(cities)) // On les dessine
+.then(cities => drawLines(cities))
+.then(cities => writeNames(cities))
+.then(nb => console.log(nb + ' points affichés'));
 }
 
 // DERNIERE ETAPE
 //Dès que le JSON de la carte de France est chargé, la fonction main est lancée !
- queue()
+queue()
     .defer(d3.json, "https://api.myjson.com/bins/dw4e3")
     .await(main);

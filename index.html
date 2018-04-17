@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Comment la SNCF rapproche la France.</title>
+
+    <!-- Bootstrap Core CSS -->
+
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+
+    <!-- Custom CSS -->
+
+    <link href="css/stylish-portfolio.min.css" rel="stylesheet">
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117189899-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-117189899-1');
+    </script>
+
+
+    <!-- Integrate France chart -->
+    <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://d3js.org/queue.v1.min.js"></script>
+    <script type="text/javascript" src="indexbis.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+
+
+<body id="page-top">
+
+
+<a class="menu-toggle rounded" href="#">
+    <i class="fa fa-bars"></i>
+</a>
+
+<nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+            <a class="js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+        </li>
+        <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="#page-top">Home</a>
+        </li>
+        <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="#about">About</a>
+        </li>
+        <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="#services">Services</a>
+        </li>
+        <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
+        </li>
+        <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="#contact">Contact</a>
+        </li>
+    </ul>
+</nav>
+
+
+
+<!-- Header -->
+
+<header class="masthead d-flex">
+    <div class="container text-center my-auto">
+        <h1 class="mb-1">Comment la SNCF rapproche la France</h1>
+        <h3 class="mb-5">
+            <em>L'intégration des territoires français par le transport ferroviaire.</em>
+        </h3>
+    </div>
+</header>
+
+
+
+<!-- About -->
+
+<section class="content-section bg-light" id="about">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <h2>La France par le train.</h2>
+                <p class="lead mb-5">Depuis l'ouverture de la politique OpenData la SNCF publie en accès libre des tableaux de données
+                    relatifs à son fonctionnement. Les sujets sont multiples, des horaires des lignes TER au nombre d'accidents sur des
+                    passages à niveau... On peut même y trouver la carte du wagon bar par trajet ! Ce site propose de se focaliser sur l'évolution temporelle
+                    du réseau ferroviaire français : <strong>comment est organisé le réseau, comment ont évolué les temps de parcours et ainsi l'accessibilité des territoires ? </strong></p>
+
+                <p class="lead mb-5">Ce site est le support de notre projet du cours de Dataviz à l'ENSAE, à partir des données de la
+                    <a href="https://data.sncf.com/">SNCF.</a></p>
+                <a class="btn btn-dark btn-xl js-scroll-trigger" href="#Histoire des lignes">La petite histoire du réseau ferroviaire français.</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="content-section" id="Histoire des lignes">
+    <div class="container">
+        <div class="content-section-heading">
+            <h3 class="text-secondary mb-0">Le monstre SNCF</h3>
+            <h2 class="mb-5">Un réseau tentaculaire et une fréquentation massive.</h2>
+        </div>
+        <div class="row">
+            <p class="text">La SNCF est créée le 1er janvier 1938 de la fusion des grands réseaux privés
+                (Compagnies du Nord, Paris-Lyon-Méditerranée, Paris-Orléans, du Midi, de l'Est)
+                ou publics (chemins de fer de l'État, chemins de fer d'Alsace-Lorraine) de l'époque. Aujourd'hui, ces principaux chiffres d'activité sont les suivants : </p>
+            <script id="infogram_0_76b79475-2bcc-41aa-9c20-0dae2b2226c5" title="basic sncf" src="https://e.infogram.com/js/dist/embed.js?mUd" type="text/javascript"></script>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="content-section" id="Rapprochement de Paris">
+    <div class="container">
+        <div class="content-section-heading">
+            <h3 class="text-secondary mb-0">Rapprochement de Paris</h3>
+            <h2 class="mb-5">Comment s'est déformée la France du point de vue du voyageur SNCF parisien ?</h2>
+        </div>
+
+        <div class="row">
+            <p class="text">Comment dans le temps la distance relative des plus grandes villes de France à la capitale a t'elle évoluée ? </p>
+        </div>
+
+        <div class="row">
+            <p class="lead mb-5">
+            <script type="text/javascript" src="indexbis.js"></script>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>jQuery UI Slider - Range with fixed minimum</title>
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+            <link rel="stylesheet" href="/resources/demos/style.css">
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script>
+                $( function() {
+                    $( "#slider-range-min" ).slider({
+                        range: "min",
+                        value: 1980,
+                        min: 1958,
+                        max: 2000,
+                        slide: function( event, ui ) {
+                            $( "#amount" ).val( ui.value );
+                            console.log(event, ui);
+                            handleYearChange();
+                        }
+                    });
+                    $( "#amount" ).val( $( "#slider-range-min" ).slider( "value" ) );
+                } );
+            </script>
+            </p>
+
+
+        </div>
+
+        <div class="row">
+            <div id="slider-range-min"></div>
+            <p class="lead mb-5">
+                <label for="amounto">Année du slider:</label>
+                <input type="text"
+                       id="amount"
+                       readonly
+                       style="border:0; color:#f6931f; font-weight:bold;"
+                >
+            </p>
+        </div>
+    </div>
+
+
+
+
+
+</section>
+
+
+
+
+<section class="content-section" id="Dynamique des territoires">
+
+    <div class="container">
+
+        <div class="content-section-heading">
+
+            <h3 class="text-secondary mb-0">Evolution de la dessert des territoires.</h3>
+
+            <h2 class="mb-5">Des territoires aux évolutions bien différentes, pour quelle accessibilité en train ?.</h2>
+
+        </div>
+
+        <div class="row">
+
+            <p class="text">D'un côté, le Sud-Est a connu une forte dynamique de population : ses habitants ont aussi gagné presque 2h de temps de trajet depuis Paris ! De l'autre côté, les Pays de la Loire, en plein boom économique et démographique, semblent avoir été oubliés par les travaux de la SNCF... </p>
+
+            <iframe id="datawrapper-chart-a5wol" src="//datawrapper.dwcdn.net/a5wol/4/" scrolling="no" frameborder="0" allowtransparency="true" style="width: 0; min-width: 100% !important;" height="600"></iframe><script type="text/javascript">if("undefined"==typeof window.datawrapper)window.datawrapper={};window.datawrapper["a5wol"]={},window.datawrapper["a5wol"].embedDeltas={"100":700,"200":650,"300":625,"400":625,"500":600,"700":600,"800":600,"900":600,"1000":600},window.datawrapper["a5wol"].iframe=document.getElementById("datawrapper-chart-a5wol"),window.datawrapper["a5wol"].iframe.style.height=window.datawrapper["a5wol"].embedDeltas[Math.min(1e3,Math.max(100*Math.floor(window.datawrapper["a5wol"].iframe.offsetWidth/100),100))]+"px",window.addEventListener("message",function(a){if("undefined"!=typeof a.data["datawrapper-height"])for(var b in a.data["datawrapper-height"])if("a5wol"==b)window.datawrapper["a5wol"].iframe.style.height=a.data["datawrapper-height"][b]+"px"});</script>
+
+            <iframe id="datawrapper-chart-A7V0u" src="//datawrapper.dwcdn.net/A7V0u/1/" scrolling="no" frameborder="0" allowtransparency="true" style="width: 0; min-width: 100% !important;" height="400"></iframe><script type="text/javascript">if("undefined"==typeof window.datawrapper)window.datawrapper={};window.datawrapper["A7V0u"]={},window.datawrapper["A7V0u"].embedDeltas={"100":559,"200":453,"300":427,"400":427,"500":400,"700":400,"800":400,"900":400,"1000":400},window.datawrapper["A7V0u"].iframe=document.getElementById("datawrapper-chart-A7V0u"),window.datawrapper["A7V0u"].iframe.style.height=window.datawrapper["A7V0u"].embedDeltas[Math.min(1e3,Math.max(100*Math.floor(window.datawrapper["A7V0u"].iframe.offsetWidth/100),100))]+"px",window.addEventListener("message",function(a){if("undefined"!=typeof a.data["datawrapper-height"])for(var b in a.data["datawrapper-height"])if("A7V0u"==b)window.datawrapper["A7V0u"].iframe.style.height=a.data["datawrapper-height"][b]+"px"});</script>        </div>
+
+
+
+        <iframe id="datawrapper-chart-dey7k" src="//datawrapper.dwcdn.net/dey7k/1/" scrolling="no" frameborder="0" allowtransparency="true" style="width: 0; min-width: 100% !important;" height="600"></iframe><script type="text/javascript">if("undefined"==typeof window.datawrapper)window.datawrapper={};window.datawrapper["dey7k"]={},window.datawrapper["dey7k"].embedDeltas={"100":750,"200":650,"300":625,"400":625,"500":600,"700":600,"800":600,"900":600,"1000":600},window.datawrapper["dey7k"].iframe=document.getElementById("datawrapper-chart-dey7k"),window.datawrapper["dey7k"].iframe.style.height=window.datawrapper["dey7k"].embedDeltas[Math.min(1e3,Math.max(100*Math.floor(window.datawrapper["dey7k"].iframe.offsetWidth/100),100))]+"px",window.addEventListener("message",function(a){if("undefined"!=typeof a.data["datawrapper-height"])for(var b in a.data["datawrapper-height"])if("dey7k"==b)window.datawrapper["dey7k"].iframe.style.height=a.data["datawrapper-height"][b]+"px"});</script>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Callout -->
+
+
+
+    <section class="callout">
+
+      <div class="container text-center">
+
+        <h2 class="mx-auto mb-5">La SNCF, moteur de rapprochement des territoires !</h2>
+<!--
+        <a class="btn btn-primary btn-xl" href="https://startbootstrap.com/template-overviews/stylish-portfolio/"></a>
+-->
+      </div>
+
+    </section>
+
+
+
+    -->
+
+
+
+    <!-- Portfolio -->
+
+    <!--
+
+    <section class="content-section" id="portfolio">
+
+      <div class="container">
+
+        <div class="content-section-heading text-center">
+
+          <h3 class="text-secondary mb-0">Projet</h3>
+
+          <h2 class="mb-5">Grandes lignes du projet</h2>
+
+        </div>
+
+        <div class="row no-gutters">
+
+          <div class="col-lg-6">
+
+            <a class="portfolio-item" href="#">
+
+              <span class="caption">
+
+                <span class="caption-content">
+
+                  <h2>Carte évolutive</h2>
+
+                  <p class="mb-0">Une visualisation de l'ouverture et de la fermeture des lignes SNCF dans le temps.</p>
+
+                </span>
+
+              </span>
+
+              <img class="img-fluid" src="img/old_train.jpg" alt="">
+
+            </a>
+
+          </div>
+
+          <div class="col-lg-6">
+
+            <a class="portfolio-item" href="#">
+
+              <span class="caption">
+
+                <span class="caption-content">
+
+                  <h2>Anamorphose</h2>
+
+                  <p class="mb-0">Une carte qui se déforme selon les années et les réductions des temps de parcours.</p>
+
+                </span>
+
+              </span>
+
+              <img class="img-fluid" src="img/paris.jpg" alt="">
+
+            </a>
+
+          </div>
+
+          <div class="col-lg-6">
+
+            <a class="portfolio-item" href="#">
+
+              <span class="caption">
+
+                <span class="caption-content">
+
+                  <h2>Lien avec la densité de population</h2>
+
+                  <p class="mb-0">L'évolution de la population/l'activité économique des régions concernées par cette évolution du réseau ferroviaire.</p>
+
+                </span>
+
+              </span>
+
+              <img class="img-fluid" src="img/activite.jpg" alt="">
+
+            </a>
+
+          </div>
+
+          <div class="col-lg-6">
+
+            <a class="portfolio-item" href="#">
+
+              <span class="caption">
+
+                <span class="caption-content">
+
+                  <h2>Les sujets qui fachent</h2>
+
+                  <p class="mb-0">Fréquentation des 'petites lignes' en lien avec l'activité des territoires qu'elles desservent.</p>
+
+                </span>
+
+              </span>
+
+              <img class="img-fluid" src="img/train_train.jpg" alt="">
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    -->
+
+
+
+    <!-- Call to Action -->
+
+    <!--
+
+    <section class="content-section bg-primary text-white">
+
+      <div class="container text-center">
+
+        <h2 class="mb-4">The buttons below are impossible to resist...</h2>
+
+        <a href="#" class="btn btn-xl btn-light mr-4">Click Me!</a>
+
+        <a href="#" class="btn btn-xl btn-dark">Look at Me!</a>
+
+      </div>
+
+    </section>
+
+    -->
+
+
+
+
+
+    <!-- Footer -->
+
+    <footer class="footer text-center">
+
+      <div class="container">
+
+        <ul class="list-inline mb-5">
+
+          <li class="list-inline-item">
+
+            <a class="social-link rounded-circle text-white mr-3" href="https://www.facebook.com/ENSAEParisTech/">
+
+              <i class="icon-social-facebook"></i>
+
+            </a>
+
+          </li>
+
+          <li class="list-inline-item">
+
+            <a class="social-link rounded-circle text-white mr-3" href="https://twitter.com/ENSAEParisTech">
+
+              <i class="icon-social-twitter"></i>
+
+            </a>
+
+          </li>
+
+          <li class="list-inline-item">
+
+            <a class="social-link rounded-circle text-white" href="https://github.com/letrainenfrance">
+
+              <i class="icon-social-github"></i>
+
+            </a>
+
+          </li>
+
+        </ul>
+
+        <p class="text-muted small mb-0"> &copy; Quiterie DUCO, Albane MIRON DE L'ESPINAY, Sylvain MOULIERAC, Alexandre SIMCIC, 2018</p>
+
+      </div>
+
+    </footer>
+
+
+
+    <!-- Scroll to Top Button-->
+
+    <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+
+      <i class="fa fa-angle-up"></i>
+
+    </a>
+
+
+
+    <!-- Bootstrap core JavaScript -->
+<!-- En conflit avec la visu d3
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <!-- Plugin JavaScript -->
+
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+
+
+    <!-- Custom scripts for this template -->
+
+    <script src="js/stylish-portfolio.min.js"></script>
+
+
+
+  </body>
+
+
+
+</html>
