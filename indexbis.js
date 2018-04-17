@@ -11,25 +11,25 @@ var cc = [paris, lyon, toulouse];
 var formatNumber = d3.format("s"),
     offset = [width / 2, height / 2],
     scale  = 150,
-    center = [0, 49.5]
-    //, width = 600,
-    //height = 600,
+    center = [0, 49.5],
+    width = 1200,
+    height = 700
     ;
 
-var margin = {top: 20, right: 20, bottom: 20, left: 20},
+/*var margin = {top: 20, right: 20, bottom: 20, left: 20},
     padding = {top: 60, right: 60, bottom: 60, left: 60},
     outerWidth = 960,
     outerHeight = 600,
     innerWidth = outerWidth - margin.left - margin.right,
     innerHeight = outerHeight - margin.top - margin.bottom,
     width = innerWidth - padding.left - padding.right,
-    height = innerHeight - padding.top - padding.bottom;
+    height = innerHeight - padding.top - padding.bottom;*/
 
 var projection = d3.geoAlbers()
     .center([0, 49.5])
     .rotate([-2.8, 3])
     .parallels([45, 55])
-    .scale(2500)
+    .scale(4000)
     .translate([width / 2, height / 2]);
 
 var path = d3.geoPath()
@@ -49,8 +49,8 @@ var path = d3.geoPath()
 var svg = d3.select('body')
     .attr("align","center")
     .append("svg")
-    .attr("width", innerWidth)
-    .attr("height", innerHeight)
+    .attr("width", width)
+    .attr("height", height)
     ;
 
 // DEUXIEME ETAPE : On va écrire notre fonction pour lire notre tableau CSV
@@ -112,7 +112,7 @@ function drawCities(cities) {
         .attr("cy", function (d) {
             return projection([d[1], d[2]])[1];
         })
-        .attr("r", "3px")
+        .attr("r", "2px")
         .attr("fill", "red");
 
     return cities;
@@ -141,8 +141,8 @@ function drawLines(cities) {
         .attr("y2", function (d) {
             return projection([2.3488, 48.85341])[1];
         })
-        .attr("stroke-width", 1.5)
-        .attr("stroke", "darkblue")
+        .attr("stroke-width", 2)
+        .attr("stroke", "#f6931f")
     ;
     return cities;
 
@@ -163,8 +163,8 @@ function writeNames(cities) {
         .attr("y", function(d) {
             return  projection([d[1], d[2]])[1];
         })
-        .attr("text-anchor", "middle")
-        .attr('font-size', '8pt');
+        .attr("text-anchor", "end")
+        .attr('font-size', '10pt');
 
     names
         .exit()
