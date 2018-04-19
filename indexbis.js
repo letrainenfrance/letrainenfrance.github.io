@@ -1,7 +1,4 @@
-// PREMIERE ETAPE : Definition des variables globales utilisées par d3 pour le rendu
-// et par d'autres functions dans le code
-
-var width = 2000,
+var width = 1500,
     height = 800,
     formatNumber = d3.format("s");
 
@@ -38,19 +35,15 @@ function selectCities(data, year) {
     let result_20171980 = [];
     data.forEach((city) => {
         if (Number(city.Annee) == year) {
-    // let result_total = [];
-    // data.forEach((city) => {
-    //     result_total.push([city.Ville, Number(city.Longitude), Number(city.Latitude), city.Annee])
-    // });
-
             result_20171980.push([city.Ville,
                                   Number(city.longitudebis),
                                   Number(city.latitudebis),
                                   city.Annee,
                                   Number(city.Longitude),
-                                  Number(city.Latitude), city.x])
+                                  Number(city.Latitude), city.Time])
         }
     });
+
     return result_20171980;
     }
 
@@ -84,18 +77,18 @@ function drawCities(cities) {
             })
     		.attr("r", "3px")
     		.attr("fill", "red");
-    
+
     return cities;
  }
 
 
 function drawLines(cities) {
      var lines = svg.selectAll("line").data(cities)
-    
+
     lines
         .exit()
             .remove();
-    
+
     lines
         .enter()
             .append("line")
@@ -125,9 +118,8 @@ function writeNames(cities) {
         .enter()
             .append("svg:text")
         .merge(names)
-
             .text(function(d) {
-                return (d[0]'\n'+d[6]);
+                return (d[0]+'\n'+d[6]);
             })
             .attr("x", function(d) {
                 return projection([d[1], d[2]])[0];
@@ -135,8 +127,8 @@ function writeNames(cities) {
             .attr("y", function(d) {
                 return  projection([d[1], d[2]])[1];
             })
-            .attr("text-anchor", "middle")
-            .attr('font-size', '8pt');
+            .attr("text-anchor", "end")
+            .attr('font-size', '10pt');
 
     names
         .exit()
@@ -157,7 +149,6 @@ function main(err, france) {
         .then(cities => drawLines(cities))
         .then(cities => writeNames(cities))
         .then(nb => console.log(nb + ' points affichés'));
-
 }
 
 // Triggered when input changes
@@ -165,7 +156,6 @@ function handleYearChange() {
     var selectedYear = document.getElementById("amount").value;
 
     Promise.resolve()
-
         .then(() => readCSV("data_latlong3.csv")) // on prend les données des villes
         .then(data => selectCities(data, selectedYear)) // On les travaille un peu
         .then(cities => drawCities(cities)) // On les dessine
