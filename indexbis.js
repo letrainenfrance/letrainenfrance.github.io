@@ -1,5 +1,5 @@
-var width = 1500,
-    height = 800,
+var width = 1200,
+    height = 700,
     formatNumber = d3.format("s");
 
 var projection = d3.geoAlbers()
