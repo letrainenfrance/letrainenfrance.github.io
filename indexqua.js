@@ -1,29 +1,29 @@
 // PREMIERE ETAPE : Definition des variables globales utilisées par d3 pour le rendu
 // et par d'autres functions dans le code
 
-var width = 1000,
-    height = 800,
+var width2 = 1000,
+    height2 = 800,
     formatNumber = d3.format("s");
 
-var projection = d3.geoAlbers()
+var projection2 = d3.geoAlbers()
     .center([0, 49.5])
     .rotate([-2.8, 3])
     .parallels([45, 55])
     .scale(4000)
-    .translate([width / 2, height / 2]);
+    .translate([width2 / 2, height2 / 2]);
 
-var path = d3.geoPath()
-    .projection(projection);
+var path2 = d3.geoPath()
+    .projection(projection2);
 
-var svg = d3.select('body')
+var svg2 = d3.select('body')
     .append("svg")
-    .attr("width", width)
-    .attr("height", height);
+    .attr("width", width2)
+    .attr("height", height2);
 
 // DEUXIEME ETAPE : On va écrire notre fonction pour lire notre tableau CSV
 // Si tu comprends pas le code, passe à la suite, tu as juste besoin de savoir
 // que la fonction donnera en sortie, le csv parsé
-function readCSV(path_to_csv) {
+function readCSV2(path_to_csv) {
     return new Promise(function(resolve, reject) {
         d3.csv(path_to_csv, function(err, data) {
             resolve(data);
@@ -34,11 +34,11 @@ function readCSV(path_to_csv) {
 
 // On peut ici retravailler les données parsées : par exemple,
 // ne prendre que les coords de l'années 1980
-function selectCities(data, year) {
+function selectCities2(data, year) {
     let result_20171980 = [];
-    data.forEach((city) => {
-        if (Number(city.Annee) == year) {
-            result_20171980.push([city.Ville, Number(city.longpoly), Number(city.latpoly), Number(city.longcote),Number(city.latcote),city.Annee,city.Zone])
+    data.forEach((city2) => {
+        if (Number(city2.Annee) == year) {
+            result_20171980.push([city2.Ville, Number(city2.longpoly), Number(city2.latpoly), Number(city2.longcote),Number(city2.latcote),city2.Annee,city2.Zone])
         }
     });
 
@@ -52,63 +52,63 @@ function selectCities(data, year) {
 }
 
 // TROISIEME ETAPE : On dessine !
-function drawFrance(france) {
-    var regions = svg.selectAll(".departements")
-        .data(topojson.feature(france, france.objects.regions).features)
+function drawFrance2(france2) {
+    var regions2 = svg2.selectAll(".departements")
+        .data(topojson.feature(france2, france2.objects.regions).features)
         .enter()
             .append("path")
             .attr("class", "departements")
-            .attr("d", path)
+            .attr("d", path2)
             .attr("stroke","black")
             .attr("stroke-width","0.1")
             .style("fill","dff2ff");
 }
 
-function drawCities(cities) {
-    var circles = svg.selectAll("circle").data(cities)
+function drawCities2(cities2) {
+    var circles2 = svg2.selectAll("circle").data(cities2)
 
-    circles
+    circles2
         .exit()
             .remove();
 
-    circles
+    circles2
         .enter()
             .append("circle")
-        .merge(circles)
+        .merge(circles2)
     		.attr("cx", function (d) {
-                return projection([d[1], d[2]])[0];
+                return projection2([d[1], d[2]])[0];
             })
     		.attr("cy", function (d) {
-                return projection([d[1], d[2]])[1];
+                return projection2([d[1], d[2]])[1];
             })
     		.attr("r", "4px")
     		.attr("fill", "#C75A68");
     
-    return cities;
+    return cities2;
  }
 
-function drawLines(cities) {
-     var lines = svg.selectAll("line").data(cities)
+function drawLines2(cities2) {
+     var lines2 = svg2.selectAll("line").data(cities2)
     
-    lines
+    lines2
         .exit()
             .remove();
     
-    lines
+    lines2
         .enter()
             .append("line")
-        .merge(lines)
+        .merge(lines2)
             .attr("x1", function (d) {
-                return projection([d[1], d[2]])[0];
+                return projection2([d[1], d[2]])[0];
             })
             .attr("y1", function (d) {
-                return projection([d[1], d[2]])[1];
+                return projection2([d[1], d[2]])[1];
             })
             .attr("x2", function (d) {
-                return projection([d[3], d[4]])[0];
+                return projection2([d[3], d[4]])[0];
             })
             .attr("y2", function (d) {
-                return projection([d[3], d[4]])[1];
+                return projection2([d[3], d[4]])[1];
             })
             .attr("stroke-width", function(d){
     if(d[6] == "2h") {
@@ -126,33 +126,31 @@ function drawLines(cities) {
 })
             .style("stroke-dasharray", ("13, 3"))
     ;
-    return cities;
+    return cities2;
 
 }
 
 // Et on appelle toutes les promesses à la fin, dans le bon ordre
-function main(err, france) {
-    var selectedYear = document.getElementById("amount").value;
+function main(err, france2) {
+    var selectedYear2 = document.getElementById("amount2").value;
 
     Promise.resolve()
-        .then(() => drawFrance(france)) // On dessine le fond de carte
-        .then(() => readCSV("data_polygones.csv")) // on prend les données des villes
-        .then(data => selectCities(data, selectedYear)) // On les travaille un peu
-        .then(cities => drawCities(cities)) // On les dessine
-        .then(cities => drawLines(cities))
-        .then(nb => console.log(nb + ' points affichés'));
+        .then(() => drawFrance2(france2)) // On dessine le fond de carte
+        .then(() => readCSV2("data_polygones.csv")) // on prend les données des villes
+        .then(data2 => selectCities2(data2, selectedYear2)) // On les travaille un peu
+        .then(cities2 => drawCities2(cities2)) // On les dessine
+        .then(cities2 => drawLines2(cities2));
 }
 
 // Triggered when input changes
-function handleYearChange() {
-    var selectedYear = document.getElementById("amount").value;
+function handleYearChange2() {
+    var selectedYear2 = document.getElementById("amount2").value;
 
     Promise.resolve()
-        .then(() => readCSV("data_polygones.csv")) // on prend les données des villes
-        .then(data => selectCities(data, selectedYear)) // On les travaille un peu
-        .then(cities => drawCities(cities)) // On les dessine
-        .then(cities => drawLines(cities))
-        .then(nb => console.log(nb + ' points affichés'));
+        .then(() => readCSV2("data_polygones.csv")) // on prend les données des villes
+        .then(data2 => selectCities2(data2, selectedYear2)) // On les travaille un peu
+        .then(cities2 => drawCities2(cities2)) // On les dessine
+        .then(cities2 => drawLines2(cities2));
 }
 
 // DERNIERE ETAPE

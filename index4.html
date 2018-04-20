@@ -15,43 +15,43 @@
 </head>
 
 <body>
-    <script type="text/javascript" src="indexqua.js"></script>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>jQuery UI Slider - Range with fixed minimum</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-  $( function() {
-    $( "#slider-range-min" ).slider({
-      range: "min",
-      value: 1958,
-      min: 1958,
-      max: 2017,
-      slide: function( event, ui ) {
-        $( "#amount" ).val( ui.value );
-          handleYearChange();
-      }
-    });
-    $( "#amount" ).val( $( "#slider-range-min" ).slider( "value" ) );
-  } );
-  </script>
+<script type="text/javascript" src="indexqua.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery UI Slider - Range with fixed minimum</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $( function() {
+        $( "#slider-range-min" ).slider({
+            range: "min",
+            value: 1958,
+            min: 1958,
+            max: 2017,
+            slide: function( event, ui ) {
+                $( "#amount" ).val( ui.value );
+                handleYearChange2();
+            }
+        });
+        $( "#amount" ).val( $( "#slider-range-min" ).slider( "value" ) );
+    } );
+</script>
 </head>
 
- 
-    <div id="slider-range-min"></div>
-    
+
+<div id="slider-range-min"></div>
+
 <p>
-  <label for="amounto">Année :</label>
-  <input type="text" 
-         id="amount" 
-         readonly 
-         style="border:0; color:#f6931f; font-weight:bold;"
-         >
+    <label for="amounto">Année :</label>
+    <input type="text"
+           id="amount"
+           readonly
+           style="border:0; color:#f6931f; font-weight:bold;"
+    >
 </p>
-  
-        
+
+
 </body>
 </html>

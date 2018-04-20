@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>La France, c'est beau</title>
+    <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://d3js.org/queue.v1.min.js"></script>
+    <script type="text/javascript" src="indexbis.js"></script>
+    <script type="text/javascript" src="indexqua.js"></script>
+
+
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+
+<section>
+    <script type="text/javascript" src="indexbis.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Slider - Range with fixed minimum</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#slider-range-min" ).slider({
+                range: "min",
+                value: 1958,
+                min: 1958,
+                max: 2017,
+                slide: function( event, ui ) {
+                    $( "#amount" ).val( ui.value );
+                    handleYearChange();
+                }
+            });
+            $( "#amount" ).val( $( "#slider-range-min" ).slider( "value" ) );
+        } );
+    </script>
+
+
+    <div id="slider-range-min"></div>
+
+    <p>
+        <label for="amounto">Année :</label>
+        <input type="text"
+               id="amount"
+               readonly
+               style="border:0; color:#f6931f; font-weight:bold;"
+        >
+    </p>
+
+</section>
+
+
+<section>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Slider - Range with fixed minimum</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="indexqua.js"></script>
+
+    <script>
+        $( function() {
+            $( "#slider-range-min2" ).slider({
+                range: "min",
+                value: 1958,
+                min: 1958,
+                max: 2017,
+                slide: function( event2, ui2 ) {
+                    $( "#amount2" ).val( ui2.value );
+                    handleYearChange2();
+                }
+            });
+            $( "#amount2" ).val( $( "#slider-range-min2" ).slider( "value" ) );
+        } );
+    </script>
+
+
+    <div id="slider-range-min2"></div>
+
+    <p>
+        <label for="amounto">Année :</label>
+        <input type="text"
+               id="amount2"
+               readonly
+               style="border:0; color:#f6931f; font-weight:bold;"
+        >
+    </p>
+
+</section>
+
+
+
+
+</body>
+</html>

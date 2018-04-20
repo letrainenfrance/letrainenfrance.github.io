@@ -239,8 +239,7 @@ function main(err, france) {
         .then(data => selectCities(data, selectedYear)) // On les travaille un peu
         .then(cities => drawCities(cities)) // On les dessine
         .then(cities => drawLines(cities))
-        .then(cities => writeNames(cities))
-        .then(nb => console.log(nb + ' points affichés'));
+        .then(cities => writeNames(cities));
 }
 
 // Triggered when input changes
@@ -252,8 +251,7 @@ function handleYearChange() {
         .then(data => selectCities(data, selectedYear)) // On les travaille un peu
         .then(cities => drawCities(cities)) // On les dessine
         .then(cities => drawLines(cities))
-        .then(cities => writeNames(cities))
-        .then(nb => console.log(nb + ' points affichés'));
+        .then(cities => writeNames(cities));
 }
 
 // DERNIERE ETAPE
