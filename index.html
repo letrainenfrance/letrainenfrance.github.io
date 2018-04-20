@@ -43,6 +43,7 @@
     <script src="https://d3js.org/topojson.v1.min.js"></script>
     <script src="https://d3js.org/queue.v1.min.js"></script>
     <script type="text/javascript" src="indexbis.js"></script>
+    <script type="text/javascript" src="indexqua.js"></script>
 
 
 
@@ -187,7 +188,7 @@
                 } );
             </script>
 
-    <div id="slider-range-min"></div>
+      <div id="slider-range-min"></div>
             <p>
                 <label for="amounto">Année :</label>
                 <input type="text"
@@ -218,47 +219,47 @@
         <div class="content-section-heading">
             <h3 class="text-secondary mb-0">Rapprochement de Paris : zonage</h3>
             <h2 class="mb-5">Quelles régions de France à moins de 2h, 4h de Paris ?</h2>
-<!---
-            <div class="d-print-block" align="center">
-                <script type="text/javascript" src="indexqua.js"></script>
 
+            <div class="d-print-block" align="center">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <title>jQuery UI Slider - Range with fixed minimum</title>
                 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
                 <link rel="stylesheet" href="/resources/demos/style.css">
                 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
                 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+                <script type="text/javascript" src="indexqua.js"></script>
+
                 <script>
                     $( function() {
-                        $( "#slider-range-min" ).slider({
+                        $( "#slider-range-min2" ).slider({
                             range: "min",
                             value: 1958,
                             min: 1958,
                             max: 2017,
-                            slide: function( event, ui ) {
-                                $( "#amount" ).val( ui.value );
-                                handleYearChange();
+                            slide: function( event2, ui2 ) {
+                                $( "#amount2" ).val( ui2.value );
+                                handleYearChange2();
                             }
                         });
-                        $( "#amount" ).val( $( "#slider-range-min" ).slider( "value" ) );
+                        $( "#amount2" ).val( $( "#slider-range-min2" ).slider( "value" ) );
                     } );
                 </script>
-                </head>
 
 
-                <div id="slider-range-min"></div>
+                <div id="slider-range-min2"></div>
+
                 <p>
                     <label for="amounto">Année :</label>
                     <input type="text"
-                           id="amount"
+                           id="amount2"
                            readonly
                            style="border:0; color:#f6931f; font-weight:bold;"
                     >
                 </p>
             </div>
-                  -->
+
         </div>
-      </div>
+    </div>
 
 </section>
 
