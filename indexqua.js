@@ -61,7 +61,7 @@ function drawFrance2(france2) {
             .attr("d", path2)
             .attr("stroke","black")
             .attr("stroke-width","0.1")
-            .style("fill","#AED6F1");
+            .style("fill","lightblue");
 }
 
 function drawCities2(cities2) {
