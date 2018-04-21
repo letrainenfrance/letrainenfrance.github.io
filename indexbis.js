@@ -1,4 +1,4 @@
-var width = 1200,
+var width = 1800,
     height = 700,
     formatNumber = d3.format("s");
 
