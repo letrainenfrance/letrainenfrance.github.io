@@ -61,7 +61,7 @@ function drawFrance2(france2) {
             .attr("class", "departements")
             .attr("d", path2)
             .attr("stroke","black")
-            .attr("stroke-width","0.1")
+            .attr("stroke-width","0.01")
             .style("fill","lightblue");
 }
 
