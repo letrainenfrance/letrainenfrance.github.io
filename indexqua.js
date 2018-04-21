@@ -88,27 +88,27 @@ function drawCities2(cities2) {
  }
 
 function drawLines2(cities2) {
-     var lines = svg.selectAll("line").data(cities)
+     var lines2 = svg2.selectAll("line").data(cities2)
     
-    lines
+    lines2
         .exit()
             .remove();
     
-    lines
+    lines2
         .enter()
             .append("line")
-        .merge(lines)
+        .merge(lines2)
             .attr("x1", function (d) {
-                return projection([d[1], d[2]])[0];
+                return projection2([d[1], d[2]])[0];
             })
             .attr("y1", function (d) {
-                return projection([d[1], d[2]])[1];
+                return projection2([d[1], d[2]])[1];
             })
             .attr("x2", function (d) {
-                return projection([d[3], d[4]])[0];
+                return projection2([d[3], d[4]])[0];
             })
             .attr("y2", function (d) {
-                return projection([d[3], d[4]])[1];
+                return projection2([d[3], d[4]])[1];
             })
             .attr("stroke-width", function(d){
     if(d[6] == "2h") {
@@ -126,7 +126,7 @@ function drawLines2(cities2) {
 })
             .style("stroke-dasharray", ("13, 3"))
     ;
-    return cities;
+    return cities2;
 
 }
 
