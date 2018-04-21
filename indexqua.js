@@ -1,8 +1,8 @@
 // PREMIERE ETAPE : Definition des variables globales utilisées par d3 pour le rendu
 // et par d'autres functions dans le code
 
-var width2 = 1200,
-    height2 = 800,
+var width2 = 100,
+    height2 = 1300,
     formatNumber = d3.format("s");
 
 var projection2 = d3.geoAlbers()
