@@ -1,8 +1,8 @@
 // PREMIERE ETAPE : Definition des variables globales utilisées par d3 pour le rendu
 // et par d'autres functions dans le code
 
-var width2 = 100,
-    height2 = 1300,
+var width2 = 1800,
+    height2 = 700,
     formatNumber = d3.format("s");
 
 var projection2 = d3.geoAlbers()
@@ -61,7 +61,7 @@ function drawFrance2(france2) {
             .attr("d", path2)
             .attr("stroke","black")
             .attr("stroke-width","0.1")
-            .style("fill","dff2ff");
+            .style("fill","#AED6F1");
 }
 
 function drawCities2(cities2) {
@@ -88,45 +88,45 @@ function drawCities2(cities2) {
  }
 
 function drawLines2(cities2) {
-     var lines2 = svg2.selectAll("line").data(cities2)
+     var lines = svg.selectAll("line").data(cities)
     
-    lines2
+    lines
         .exit()
             .remove();
     
-    lines2
+    lines
         .enter()
             .append("line")
-        .merge(lines2)
+        .merge(lines)
             .attr("x1", function (d) {
-                return projection2([d[1], d[2]])[0];
+                return projection([d[1], d[2]])[0];
             })
             .attr("y1", function (d) {
-                return projection2([d[1], d[2]])[1];
+                return projection([d[1], d[2]])[1];
             })
             .attr("x2", function (d) {
-                return projection2([d[3], d[4]])[0];
+                return projection([d[3], d[4]])[0];
             })
             .attr("y2", function (d) {
-                return projection2([d[3], d[4]])[1];
+                return projection([d[3], d[4]])[1];
             })
             .attr("stroke-width", function(d){
     if(d[6] == "2h") {
-        return "4";
+        return "2";
     } else {
         return "2";
     }
 })
             .attr("stroke", function(d){
     if(d[6] == "2h") {
-        return "#82E0AA";
+        return "#E74C3C";
     } else {
         return "#F39C12";
     }
 })
             .style("stroke-dasharray", ("13, 3"))
     ;
-    return cities2;
+    return cities;
 
 }
 
