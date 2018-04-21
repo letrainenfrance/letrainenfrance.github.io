@@ -1,7 +1,8 @@
 // PREMIERE ETAPE : Definition des variables globales utilisées par d3 pour le rendu
 // et par d'autres functions dans le code
 
-var width2 = 1200,
+
+var width2 = 1600,
     height2 = 700,
     formatNumber = d3.format("s");
 
@@ -61,7 +62,7 @@ function drawFrance2(france2) {
             .attr("d", path2)
             .attr("stroke","black")
             .attr("stroke-width","0.1")
-            .style("fill","dff2ff");
+            .style("fill","lightblue");
 }
 
 function drawCities2(cities2) {
@@ -112,14 +113,14 @@ function drawLines2(cities2) {
             })
             .attr("stroke-width", function(d){
     if(d[6] == "2h") {
-        return "4";
+        return "2";
     } else {
         return "2";
     }
 })
             .attr("stroke", function(d){
     if(d[6] == "2h") {
-        return "#82E0AA";
+        return "#E74C3C";
     } else {
         return "#F39C12";
     }
