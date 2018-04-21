@@ -1,7 +1,7 @@
 // PREMIERE ETAPE : Definition des variables globales utilisées par d3 pour le rendu
 // et par d'autres functions dans le code
 
-var width2 = 1000,
+var width2 = 1200,
     height2 = 800,
     formatNumber = d3.format("s");
 
