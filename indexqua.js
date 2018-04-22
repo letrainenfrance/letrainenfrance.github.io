@@ -2,7 +2,7 @@
 // et par d'autres functions dans le code
 
 
-var width2 = 1600,
+var width2 = 1000,
     height2 = 700,
     formatNumber = d3.format("s");
 
@@ -11,7 +11,7 @@ var projection2 = d3.geoAlbers()
     .rotate([-2.8, 3])
     .parallels([45, 55])
     .scale(4000)
-    .translate([width2 / 2, height2 / 2]);
+    .translate([(width2 / 2 + 100), height2 / 2]);
 
 var path2 = d3.geoPath()
     .projection(projection2);
