@@ -113,7 +113,7 @@ function drawLines2(cities2) {
             })
             .attr("stroke-width", function(d){
     if(d[6] == "2h") {
-        return "3";
+        return "4";
     } else {
         return "2";
     }
