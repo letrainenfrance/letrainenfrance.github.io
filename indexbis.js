@@ -6,7 +6,7 @@ var projection = d3.geoAlbers()
     .center([0, 49.5])
     .rotate([-2.8, 3])
     .parallels([45, 55])
-    .scale(4000)
+    .scale(3500)
     .translate([width / 2, height / 2]);
 
 var path = d3.geoPath()
