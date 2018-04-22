@@ -1,4 +1,4 @@
-var width = 1600,
+var width = 1000,
     height = 700,
     formatNumber = d3.format("s");
 
@@ -6,8 +6,8 @@ var projection = d3.geoAlbers()
     .center([0, 49.5])
     .rotate([-2.8, 3])
     .parallels([45, 55])
-    .scale(3500)
-    .translate([width / 2, height / 2]);
+    .scale(4000)
+    .translate([(width / 2 +100 ), height / 2]);
 
 var path = d3.geoPath()
     .projection(projection);
